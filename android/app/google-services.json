@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "499644514185",
+    "project_id": "scheduler-admin-panel-ffb19",
+    "storage_bucket": "scheduler-admin-panel-ffb19.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:499644514185:android:1a6f25bf49286c78ee6b58",
+        "android_client_info": {
+          "package_name": "com.example.urbanplantscapes_mobile_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "499644514185-hn9n147l5p1ulltujo95u2bkcfa5n2t9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrjv-uWurEyF8tSj35kLrrE8vvVtLXILs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "499644514185-hn9n147l5p1ulltujo95u2bkcfa5n2t9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "499644514185-fm56rlmltddrs40jfpvd7n0gqh4i9j9r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.adminLandscapping"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:499644514185:android:4dcc04d85dcc561cee6b58",
+        "android_client_info": {
+          "package_name": "com.schedule.admin_landscapping"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "499644514185-hn9n147l5p1ulltujo95u2bkcfa5n2t9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrjv-uWurEyF8tSj35kLrrE8vvVtLXILs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "499644514185-hn9n147l5p1ulltujo95u2bkcfa5n2t9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "499644514185-fm56rlmltddrs40jfpvd7n0gqh4i9j9r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.adminLandscapping"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

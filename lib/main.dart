@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:urbanplantscapes_mobile_app/firebase_options.dart';
 import 'package:urbanplantscapes_mobile_app/pages/home_page.dart';
-
-void main() {
+import 'package:firebase_core/firebase_core.dart';
+void main() async{
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+);
   runApp(const MyApp());
 }
 

@@ -1,15 +1,15 @@
 List serviceTypes = [
   {
     "name": "Rooftop",
-    "image": "Rooftop.png",
+    "image": "https://firebasestorage.googleapis.com/v0/b/scheduler-admin-panel-ffb19.appspot.com/o/images%2FRooftop.png?alt=media&token=f11df26d-34ee-42cb-9441-3935e59f1466",
   },
   {
     "name": "Residential",
-    "image": "Residential.png",
+    "image": "https://firebasestorage.googleapis.com/v0/b/scheduler-admin-panel-ffb19.appspot.com/o/images%2FRooftop.png?alt=media&token=f11df26d-34ee-42cb-9441-3935e59f1466",
   },
   {
     "name": "Press",
-    "image": "Press.png",
+    "image": "https://firebasestorage.googleapis.com/v0/b/scheduler-admin-panel-ffb19.appspot.com/o/images%2FPress.png?alt=media&token=ad9fa2a3-7754-4f2b-9ac5-65a9a8f45c9d",
   },
   {
     "name": "HGTV",
@@ -17,10 +17,10 @@ List serviceTypes = [
   },
   {
     "name": "Park Ave",
-    "image": "parkAve.png",
+    "image": "https://firebasestorage.googleapis.com/v0/b/scheduler-admin-panel-ffb19.appspot.com/o/images%2FRooftop.png?alt=media&token=f11df26d-34ee-42cb-9441-3935e59f1466",
   },
   {
     "name": "Design",
-    "image": "Design.png",
+    "image": "https://firebasestorage.googleapis.com/v0/b/scheduler-admin-panel-ffb19.appspot.com/o/images%2FRooftop.png?alt=media&token=f11df26d-34ee-42cb-9441-3935e59f1466",
   }
 ];

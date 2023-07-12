@@ -177,23 +177,25 @@ Widget getBody() {
 class CarouselSliderExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<QuerySnapshot>(
-      stream: FirebaseFirestore.instance.collection('your_collection_name').snapshots(),
+    return StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
+      stream: FirebaseFirestore.instance.collection('images').doc('X3omQbkWEiMOHG9mbq54').snapshots(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          final documents = snapshot.data!.docs;
+          final imageData = snapshot.data!.data()!;
+          final imagesSlide = imageData.keys.toList();
           return Expanded(
             child: ListView(
               children: [
                 CarouselSlider(
-                  items: List.generate(documents.length, (index) {
-                    final imageData = documents[index].data();
+                  items: List.generate(imagesSlide.length, (index) {
+                    final imageKey = imagesSlide[index];
+                    final imageUrl = imageData[imageKey] as String;
                     return Container(
                       margin: EdgeInsets.all(8.0),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0),
                         image: DecorationImage(
-                          image: AssetImage(getImage(imageData['image'])),
+                          image: NetworkImage(imageUrl),
                           fit: BoxFit.cover,
                         ),
                       ),
