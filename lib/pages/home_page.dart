@@ -15,38 +15,40 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget getFooter() {
       var size = MediaQuery.of(context).size;
-      return Container(
-        width: size.width,
-        height: 90,
-        decoration: BoxDecoration(
-            color: textWhite,
-            border: Border(
-                top: BorderSide(width: 2, color: textBlack.withOpacity(0.06)))),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              width: size.width - 40,
-              height: 50,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12), color: primary),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      book_appointment,
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: textWhite),
-                    ),
-                  ],
+      return SingleChildScrollView(
+        child: Container(
+          width: size.width,
+          height: 90,
+          decoration: BoxDecoration(
+              color: textWhite,
+              border: Border(
+                  top: BorderSide(width: 2, color: textBlack.withOpacity(0.06)))),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: size.width - 40,
+                height: 50,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12), color: primary),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        book_appointment,
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: textWhite),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       );
     }
@@ -56,7 +58,7 @@ class Home extends StatelessWidget {
         child: getAppBar(),
         preferredSize: Size.fromHeight(200),
       ),
-      body: getBody(),
+      body: SingleChildScrollView(child: Container(height:MediaQuery.of(context).size.height, child:getBody())),
       bottomNavigationBar: getFooter(),
     );
   }
@@ -122,44 +124,46 @@ Widget getAppBar() {
 Widget getBody() {
   return Column(
     children: [
-      Container(
-        width: double.infinity,
-        child: Padding(
-          padding: const EdgeInsets.only(top: mainPadding, bottom: mainPadding),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: List.generate(serviceTypes.length, (index) {
-                return Container(
-                  width: 120,
-                  height: 120,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 80.0,
-                        height: 80.0,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                              fit: BoxFit.fill,
-                              image: AssetImage(
-                                  getImage(serviceTypes[index]['image']))),
+      SingleChildScrollView(
+        child: Container(
+          width: double.infinity,
+          child: Padding(
+            padding: const EdgeInsets.only(top: mainPadding, bottom: mainPadding),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: List.generate(serviceTypes.length, (index) {
+                  return Container(
+                    width: 120,
+                    height: 120,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 80.0,
+                          height: 80.0,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                                fit: BoxFit.fill,
+                                image: NetworkImage(
+                                    serviceTypes[index]['image'])),
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        serviceTypes[index]['name'],
-                        style: TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                );
-              }),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          serviceTypes[index]['name'],
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  );
+                }),
+              ),
             ),
           ),
         ),
@@ -173,33 +177,33 @@ Widget getBody() {
 class CarouselSliderExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView(children: [
-        CarouselSlider(
-          items: List.generate(imagesSlide.length, (index) {
-            return Container(
-              margin: EdgeInsets.all(8.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                image: DecorationImage(
-                  image: AssetImage(getImage(imagesSlide[index]['image'])),
-                  fit: BoxFit.cover,
+      return Expanded(
+        child: ListView(children: [
+          CarouselSlider(
+            items: List.generate(imagesSlide.length, (index) {
+              return Container(
+                margin: EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  image: DecorationImage(
+                    image: AssetImage(getImage(imagesSlide[index]['image'])),
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-            );
-          }),
-          options: CarouselOptions(
-            height: 380.0,
-            enlargeCenterPage: true,
-            autoPlay: true,
-            aspectRatio: 16 / 9,
-            autoPlayCurve: Curves.fastOutSlowIn,
-            enableInfiniteScroll: true,
-            autoPlayAnimationDuration: Duration(milliseconds: 800),
-            viewportFraction: 0.8,
+              );
+            }),
+            options: CarouselOptions(
+              height: 380.0,
+              enlargeCenterPage: true,
+              autoPlay: true,
+              aspectRatio: 16 / 9,
+              autoPlayCurve: Curves.fastOutSlowIn,
+              enableInfiniteScroll: true,
+              autoPlayAnimationDuration: Duration(milliseconds: 800),
+              viewportFraction: 0.8,
+            ),
           ),
-        ),
-      ]),
-    );
+        ]),
+      );
   }
 }
