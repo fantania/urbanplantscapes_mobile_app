@@ -27,24 +27,29 @@ class Home extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                width: size.width - 40,
-                height: 50,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12), color: primary),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        book_appointment,
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: textWhite),
-                      ),
-                    ],
+              InkWell(
+                onTap: (){
+                  
+                },
+                child: Container(
+                  width: size.width - 40,
+                  height: 50,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12), color: primary),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          book_appointment,
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: textWhite),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               )

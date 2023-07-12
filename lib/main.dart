@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:urbanplantscapes_mobile_app/firebase_options.dart';
+import 'package:urbanplantscapes_mobile_app/pages/calender.dart';
 import 'package:urbanplantscapes_mobile_app/pages/home_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 void main() async{
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: AdminAvailabilities()
+      // Home(),
     );
   }
 }
