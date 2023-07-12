@@ -23,14 +23,13 @@ class Home extends StatelessWidget {
           decoration: BoxDecoration(
               color: textWhite,
               border: Border(
-                  top: BorderSide(width: 2, color: textBlack.withOpacity(0.06)))),
+                  top: BorderSide(
+                      width: 2, color: textBlack.withOpacity(0.06)))),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               InkWell(
-                onTap: (){
-                  
-                },
+                onTap: () {},
                 child: Container(
                   width: size.width - 40,
                   height: 50,
@@ -41,7 +40,7 @@ class Home extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           book_appointment,
                           style: TextStyle(
                               fontSize: 16,
@@ -64,7 +63,9 @@ class Home extends StatelessWidget {
         child: getAppBar(),
         preferredSize: Size.fromHeight(200),
       ),
-      body: SingleChildScrollView(child: Container(height:MediaQuery.of(context).size.height, child:getBody())),
+      body: SingleChildScrollView(
+          child: Container(
+              height: MediaQuery.of(context).size.height, child: getBody())),
       bottomNavigationBar: getFooter(),
     );
   }
@@ -134,7 +135,8 @@ Widget getBody() {
         child: Container(
           width: double.infinity,
           child: Padding(
-            padding: const EdgeInsets.only(top: mainPadding, bottom: mainPadding),
+            padding:
+                const EdgeInsets.only(top: mainPadding, bottom: mainPadding),
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -153,11 +155,11 @@ Widget getBody() {
                             shape: BoxShape.circle,
                             image: DecorationImage(
                                 fit: BoxFit.fill,
-                                image: NetworkImage(
-                                    serviceTypes[index]['image'])),
+                                image:
+                                    NetworkImage(serviceTypes[index]['image'])),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 5,
                         ),
                         Text(
@@ -179,11 +181,15 @@ Widget getBody() {
     ],
   );
 }
+
 class CarouselSliderExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
-      stream: FirebaseFirestore.instance.collection('images').doc('X3omQbkWEiMOHG9mbq54').snapshots(),
+      stream: FirebaseFirestore.instance
+          .collection('images')
+          .doc('X3omQbkWEiMOHG9mbq54')
+          .snapshots(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           final imageData = snapshot.data!.data()!;
