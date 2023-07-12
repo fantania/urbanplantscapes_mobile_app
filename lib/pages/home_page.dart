@@ -7,6 +7,7 @@ import '../data/services_json.dart';
 import '../theme/colors.dart';
 import '../theme/constraints.dart';
 import '../theme/padding.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -173,37 +174,51 @@ Widget getBody() {
     ],
   );
 }
-
 class CarouselSliderExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-      return Expanded(
-        child: ListView(children: [
-          CarouselSlider(
-            items: List.generate(imagesSlide.length, (index) {
-              return Container(
-                margin: EdgeInsets.all(8.0),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10.0),
-                  image: DecorationImage(
-                    image: AssetImage(getImage(imagesSlide[index]['image'])),
-                    fit: BoxFit.cover,
+    return StreamBuilder<QuerySnapshot>(
+      stream: FirebaseFirestore.instance.collection('your_collection_name').snapshots(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          final documents = snapshot.data!.docs;
+          return Expanded(
+            child: ListView(
+              children: [
+                CarouselSlider(
+                  items: List.generate(documents.length, (index) {
+                    final imageData = documents[index].data();
+                    return Container(
+                      margin: EdgeInsets.all(8.0),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        image: DecorationImage(
+                          image: AssetImage(getImage(imageData['image'])),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    );
+                  }),
+                  options: CarouselOptions(
+                    height: 380.0,
+                    enlargeCenterPage: true,
+                    autoPlay: true,
+                    aspectRatio: 16 / 9,
+                    autoPlayCurve: Curves.fastOutSlowIn,
+                    enableInfiniteScroll: true,
+                    autoPlayAnimationDuration: Duration(milliseconds: 800),
+                    viewportFraction: 0.8,
                   ),
                 ),
-              );
-            }),
-            options: CarouselOptions(
-              height: 380.0,
-              enlargeCenterPage: true,
-              autoPlay: true,
-              aspectRatio: 16 / 9,
-              autoPlayCurve: Curves.fastOutSlowIn,
-              enableInfiniteScroll: true,
-              autoPlayAnimationDuration: Duration(milliseconds: 800),
-              viewportFraction: 0.8,
+              ],
             ),
-          ),
-        ]),
-      );
+          );
+        } else if (snapshot.hasError) {
+          return Text('Error: ${snapshot.error}');
+        } else {
+          return CircularProgressIndicator();
+        }
+      },
+    );
   }
 }
