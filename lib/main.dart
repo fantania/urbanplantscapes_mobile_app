@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:urbanplantscapes_mobile_app/firebase_options.dart';
 import 'package:urbanplantscapes_mobile_app/pages/calender.dart';
 import 'package:urbanplantscapes_mobile_app/pages/home_page.dart';
@@ -15,10 +16,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AdminAvailabilities()
-      // Home(),
+      home: 
+      // AvailabilitiesScreen()
+      Home(),
     );
   }
 }

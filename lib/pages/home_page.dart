@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:urbanplantscapes_mobile_app/pages/user_detail_page.dart';
 import 'package:urbanplantscapes_mobile_app/theme/helper.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -29,6 +31,7 @@ class Home extends StatelessWidget {
             children: [
               InkWell(
                 onTap: (){
+                  Get.to(CustomerDetailScreen());
                   
                 },
                 child: Container(
