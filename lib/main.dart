@@ -4,10 +4,11 @@ import 'package:urbanplantscapes_mobile_app/firebase_options.dart';
 import 'package:urbanplantscapes_mobile_app/pages/calender.dart';
 import 'package:urbanplantscapes_mobile_app/pages/home_page.dart';
 import 'package:firebase_core/firebase_core.dart';
-void main() async{
+
+void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
-);
+  );
   runApp(const MyApp());
 }
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: 
+      home: Home(), //
       // AvailabilitiesScreen()
       Home(),
     );
